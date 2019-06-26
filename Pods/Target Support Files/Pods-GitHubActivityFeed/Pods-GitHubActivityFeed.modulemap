@@ -1,0 +1,6 @@
+framework module Pods_GitHubActivityFeed {
+  umbrella header "Pods-GitHubActivityFeed-umbrella.h"
+
+  export *
+  module * { export * }
+}
