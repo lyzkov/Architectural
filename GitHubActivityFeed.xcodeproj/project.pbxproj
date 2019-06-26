@@ -12,7 +12,6 @@
 		F35F38E822C3DACA006718B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F38E622C3DACA006718B1 /* Main.storyboard */; };
 		F35F38EA22C3DACC006718B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35F38E922C3DACC006718B1 /* Assets.xcassets */; };
 		F35F38ED22C3DACC006718B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F38EB22C3DACC006718B1 /* LaunchScreen.storyboard */; };
-		F35F38F822C3DACC006718B1 /* GitHubActivityFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F38F722C3DACC006718B1 /* GitHubActivityFeedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +33,6 @@
 		F35F38EC22C3DACC006718B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F35F38EE22C3DACC006718B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35F38F322C3DACC006718B1 /* GitHubActivityFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubActivityFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F35F38F722C3DACC006718B1 /* GitHubActivityFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActivityFeedTests.swift; sourceTree = "<group>"; };
 		F35F38F922C3DACC006718B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,12 +75,11 @@
 		F35F38E122C3DACA006718B1 /* GitHubActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
-				F35F38E222C3DACA006718B1 /* AppDelegate.swift */,
-				F35F38E422C3DACA006718B1 /* ViewController.swift */,
-				F35F38E622C3DACA006718B1 /* Main.storyboard */,
-				F35F38E922C3DACC006718B1 /* Assets.xcassets */,
-				F35F38EB22C3DACC006718B1 /* LaunchScreen.storyboard */,
-				F35F38EE22C3DACC006718B1 /* Info.plist */,
+				F35F390222C3E0D2006718B1 /* Common */,
+				F35F390322C3E0DE006718B1 /* Config */,
+				F35F390422C3E0EE006718B1 /* Misc */,
+				F35F390622C3E104006718B1 /* Module */,
+				F35F390522C3E0FC006718B1 /* Resource */,
 			);
 			path = GitHubActivityFeed;
 			sourceTree = "<group>";
@@ -90,10 +87,58 @@
 		F35F38F622C3DACC006718B1 /* GitHubActivityFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				F35F38F722C3DACC006718B1 /* GitHubActivityFeedTests.swift */,
-				F35F38F922C3DACC006718B1 /* Info.plist */,
+				F35F390722C3E1C3006718B1 /* Config */,
 			);
 			path = GitHubActivityFeedTests;
+			sourceTree = "<group>";
+		};
+		F35F390222C3E0D2006718B1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F35F390322C3E0DE006718B1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F35F38EE22C3DACC006718B1 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F35F390422C3E0EE006718B1 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				F35F38E222C3DACA006718B1 /* AppDelegate.swift */,
+				F35F38EB22C3DACC006718B1 /* LaunchScreen.storyboard */,
+				F35F38E622C3DACA006718B1 /* Main.storyboard */,
+				F35F38E422C3DACA006718B1 /* ViewController.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		F35F390522C3E0FC006718B1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F35F38E922C3DACC006718B1 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F35F390622C3E104006718B1 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		F35F390722C3E1C3006718B1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F35F38F922C3DACC006718B1 /* Info.plist */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35F38F822C3DACC006718B1 /* GitHubActivityFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WPZC96H3B4;
-				INFOPLIST_FILE = GitHubActivityFeed/Info.plist;
+				INFOPLIST_FILE = GitHubActivityFeed/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WPZC96H3B4;
-				INFOPLIST_FILE = GitHubActivityFeed/Info.plist;
+				INFOPLIST_FILE = GitHubActivityFeed/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +443,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WPZC96H3B4;
-				INFOPLIST_FILE = GitHubActivityFeedTests/Info.plist;
+				INFOPLIST_FILE = GitHubActivityFeedTests/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,7 +464,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WPZC96H3B4;
-				INFOPLIST_FILE = GitHubActivityFeedTests/Info.plist;
+				INFOPLIST_FILE = GitHubActivityFeedTests/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
