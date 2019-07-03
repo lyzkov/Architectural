@@ -15,13 +15,6 @@
 		F35F391022C3F7DF006718B1 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F390F22C3F7DF006718B1 /* Activity.storyboard */; };
 		F35F391222C3FB14006718B1 /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391122C3FB14006718B1 /* ActivityListViewController.swift */; };
 		F35F391522C42140006718B1 /* ActivityCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391422C42140006718B1 /* ActivityCellModel.swift */; };
-		F35F391E22C4C6EF006718B1 /* RestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391722C4C6EF006718B1 /* RestAPI.swift */; };
-		F35F391F22C4C6EF006718B1 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391822C4C6EF006718B1 /* Decode.swift */; };
-		F35F392022C4C6EF006718B1 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391922C4C6EF006718B1 /* Operators.swift */; };
-		F35F392122C4C6EF006718B1 /* DataPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391A22C4C6EF006718B1 /* DataPool.swift */; };
-		F35F392222C4C6EF006718B1 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391B22C4C6EF006718B1 /* HTTPHeaders.swift */; };
-		F35F392322C4C6EF006718B1 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391C22C4C6EF006718B1 /* SessionManager.swift */; };
-		F35F392422C4C6EF006718B1 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391D22C4C6EF006718B1 /* Endpoint.swift */; };
 		F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392622C4D13C006718B1 /* GitHubApi.swift */; };
 		F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392922C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift */; };
 		F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392B22C528F9006718B1 /* ActivityPool.swift */; };
@@ -60,13 +53,6 @@
 		F35F390F22C3F7DF006718B1 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		F35F391122C3FB14006718B1 /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
 		F35F391422C42140006718B1 /* ActivityCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellModel.swift; sourceTree = "<group>"; };
-		F35F391722C4C6EF006718B1 /* RestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPI.swift; sourceTree = "<group>"; };
-		F35F391822C4C6EF006718B1 /* Decode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
-		F35F391922C4C6EF006718B1 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		F35F391A22C4C6EF006718B1 /* DataPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPool.swift; sourceTree = "<group>"; };
-		F35F391B22C4C6EF006718B1 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
-		F35F391C22C4C6EF006718B1 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		F35F391D22C4C6EF006718B1 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F35F392622C4D13C006718B1 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		F35F392922C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleByStringLiteral.swift"; sourceTree = "<group>"; };
 		F35F392B22C528F9006718B1 /* ActivityPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPool.swift; sourceTree = "<group>"; };
@@ -161,7 +147,6 @@
 			children = (
 				F35F392822C4D699006718B1 /* Extensions */,
 				F35F392522C4D10D006718B1 /* Networking */,
-				F35F391622C4C6EF006718B1 /* RxStorm */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -249,20 +234,6 @@
 				F35F391422C42140006718B1 /* ActivityCellModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F35F391622C4C6EF006718B1 /* RxStorm */ = {
-			isa = PBXGroup;
-			children = (
-				F35F391722C4C6EF006718B1 /* RestAPI.swift */,
-				F35F391822C4C6EF006718B1 /* Decode.swift */,
-				F35F391922C4C6EF006718B1 /* Operators.swift */,
-				F35F391A22C4C6EF006718B1 /* DataPool.swift */,
-				F35F391B22C4C6EF006718B1 /* HTTPHeaders.swift */,
-				F35F391C22C4C6EF006718B1 /* SessionManager.swift */,
-				F35F391D22C4C6EF006718B1 /* Endpoint.swift */,
-			);
-			path = RxStorm;
 			sourceTree = "<group>";
 		};
 		F35F392522C4D10D006718B1 /* Networking */ = {
@@ -483,22 +454,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */,
-				F35F392222C4C6EF006718B1 /* HTTPHeaders.swift in Sources */,
 				F35F391522C42140006718B1 /* ActivityCellModel.swift in Sources */,
-				F35F391F22C4C6EF006718B1 /* Decode.swift in Sources */,
 				F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */,
-				F35F392022C4C6EF006718B1 /* Operators.swift in Sources */,
 				F35F395522CCC2D7006718B1 /* User.swift in Sources */,
-				F35F391E22C4C6EF006718B1 /* RestAPI.swift in Sources */,
 				F35F38E322C3DACA006718B1 /* AppDelegate.swift in Sources */,
 				F35F393622C52C63006718B1 /* Activity.swift in Sources */,
 				F35F395322CCC2C2006718B1 /* Repository.swift in Sources */,
-				F35F392122C4C6EF006718B1 /* DataPool.swift in Sources */,
 				F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */,
 				F35F395722CCC613006718B1 /* Payload.swift in Sources */,
 				F35F391222C3FB14006718B1 /* ActivityListViewController.swift in Sources */,
-				F35F392322C4C6EF006718B1 /* SessionManager.swift in Sources */,
-				F35F392422C4C6EF006718B1 /* Endpoint.swift in Sources */,
 				F35F390B22C3EDFF006718B1 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

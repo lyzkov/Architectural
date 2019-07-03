@@ -17,6 +17,10 @@ PODS:
     - RxSwift (~> 5.0)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
+  - RxStorm (0.1.0):
+    - Alamofire (~> 4.8)
+    - RxAlamofire (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxSwift (5.0.0)
 
 DEPENDENCIES:
@@ -26,6 +30,7 @@ DEPENDENCIES:
   - RxAlamofire
   - RxCocoa
   - RxFeedback
+  - RxStorm (from `./RxStorm`)
   - RxSwift
 
 SPEC REPOS:
@@ -43,6 +48,8 @@ EXTERNAL SOURCES:
   Identity:
     :git: https://github.com/lyzkov/Identity.git
     :tag: 0.2.1
+  RxStorm:
+    :path: "./RxStorm"
 
 CHECKOUT OPTIONS:
   Identity:
@@ -58,8 +65,9 @@ SPEC CHECKSUMS:
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxFeedback: 4260d8dad5bba28b182c0b9ff5bce68c260de183
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxStorm: ff5ef92463c7f05345da8e8b29d300bc8cfc31b7
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 57031d433656fffcce47449ae73f081bf305b423
+PODFILE CHECKSUM: 4bd74de218a9c0e0ed89dcb61288b75f4d8e0a71
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.3

@@ -1,0 +1,6 @@
+framework module RxStorm {
+  umbrella header "RxStorm-umbrella.h"
+
+  export *
+  module * { export * }
+}

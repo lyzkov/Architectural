@@ -1,0 +1,40 @@
+{
+  "name": "RxStorm",
+  "version": "0.1.0",
+  "summary": "Reactive REST API networking for iOS",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/lyzkov/RxStorm",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Piotr Łyczba": "lyzkov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lyzkov/RxStorm.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.1",
+    "4.2",
+    "5.0"
+  ],
+  "source_files": "Sources/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 5.0"
+    ],
+    "Alamofire": [
+      "~> 4.8"
+    ],
+    "RxAlamofire": [
+      "~> 5.0"
+    ]
+  },
+  "swift_version": "5.0"
+}

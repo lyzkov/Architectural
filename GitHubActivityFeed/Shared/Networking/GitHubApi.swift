@@ -6,6 +6,7 @@
 //  Copyright © 2019 lyzkov. All rights reserved.
 //
 
+import RxStorm
 import Alamofire
 
 struct GitHubApi: RestAPI {

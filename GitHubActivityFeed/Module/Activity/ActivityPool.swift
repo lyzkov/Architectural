@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import RxStorm
 
 final class ActivityPool: DataPool {
     typealias DataRequest = GitHubApi.Activity
