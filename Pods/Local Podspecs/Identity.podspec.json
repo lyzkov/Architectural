@@ -1,0 +1,30 @@
+{
+  "name": "Identity",
+  "version": "0.2.1",
+  "summary": "🆔 Type-safe identifiers in Swift",
+  "description": "Welcome to Identity, a small library that makes it easy to create type-safe identifiers in Swift.\nIdentifiers are often core to how models and other values are referenced within a code base,\nso leveraging the compiler to ensure that they're used in a correct manner can go a long way to making\nthe model layer of an app or system more robust.",
+  "homepage": "https://github.com/lyzkov/Identity",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "John Sundell": "contact@swiftbysundell.com",
+    "Piotr Łyczba": "lyzkov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lyzkov/Identity.git",
+    "tag": "0.2.1"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "swift_versions": [
+    "4.0",
+    "4.1",
+    "4.2",
+    "5.0"
+  ],
+  "source_files": "Sources/**/*",
+  "swift_version": "5.0"
+}

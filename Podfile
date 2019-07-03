@@ -11,6 +11,7 @@ target 'GitHubActivityFeed' do
   pod 'R.swift'
   pod 'Alamofire'
   pod 'RxAlamofire'
+  pod 'Identity', :git => 'https://github.com/lyzkov/Identity.git', :tag => '0.2.1'
 
   target 'GitHubActivityFeedTests' do
     inherit! :search_paths

@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-GitHubActivityFeed/Pods-GitHubActivityFeed-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Identity/Identity.framework
 ${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework
 ${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
