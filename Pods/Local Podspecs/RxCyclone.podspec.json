@@ -1,9 +1,9 @@
 {
-  "name": "RxStorm",
+  "name": "RxCyclone",
   "version": "0.1.0",
-  "summary": "Reactive REST API networking for iOS",
+  "summary": "Reactive iOS architecture based on reducible machine state container.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/lyzkov/RxStorm",
+  "homepage": "https://github.com/lyzkov/RxCyclone",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Piotr Łyczba": "lyzkov@gmail.com"
   },
   "source": {
-    "git": "https://github.com/lyzkov/RxStorm.git",
+    "git": "https://github.com/lyzkov/RxCyclone.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -26,14 +26,8 @@
   ],
   "source_files": "Sources/**/*",
   "dependencies": {
-    "RxSwift": [
-      "~> 5.0"
-    ],
-    "Alamofire": [
-      "~> 4.8"
-    ],
-    "RxAlamofire": [
-      "~> 5.0"
+    "RxFeedback": [
+      "~> 3.0"
     ]
   },
   "swift_version": "5.0"

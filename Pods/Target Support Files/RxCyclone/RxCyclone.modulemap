@@ -1,0 +1,6 @@
+framework module RxCyclone {
+  umbrella header "RxCyclone-umbrella.h"
+
+  export *
+  module * { export * }
+}
