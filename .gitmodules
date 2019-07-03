@@ -1,0 +1,6 @@
+[submodule "RxCyclone"]
+	path = RxCyclone
+	url = https://github.com/lyzkov/RxCyclone.git
+[submodule "RxStorm"]
+	path = RxStorm
+	url = https://github.com/lyzkov/RxStorm.git
