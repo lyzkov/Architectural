@@ -63,3 +63,15 @@ extension Activity: Decodable {
     }
 
 }
+
+extension Activity: Hashable {
+
+    static func == (lhs: Activity, rhs: Activity) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+}

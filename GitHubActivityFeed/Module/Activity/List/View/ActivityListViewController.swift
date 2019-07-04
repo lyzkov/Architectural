@@ -9,12 +9,13 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxCyclone
 
 final class ActivityListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
 
-    private let dataPool = ActivityPool()
+    private let cyclone = ActivityListCyclone()
 
     private let disposeBag = DisposeBag()
 
@@ -27,7 +28,8 @@ final class ActivityListViewController: UIViewController {
     private func bind() {
         // Configure cells
 
-        fetchData()
+        cyclone.output[\.activityList]
+            .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(
                 cellIdentifier: R.reuseIdentifier.activityCell.identifier,
                 cellType: UITableViewCell.self
@@ -35,14 +37,6 @@ final class ActivityListViewController: UIViewController {
                 cell.textLabel?.text = activity.description
             }
             .disposed(by: disposeBag)
-    }
-
-    private func fetchData() -> Driver<[ActivityCellModel]> {
-        return dataPool.list(page: 1, perPage: 20)
-            .map { activities in
-                activities.compactMap(ActivityCellModel.init(from:))
-            }
-            .asDriver(onErrorJustReturn: [])
     }
 
 }
