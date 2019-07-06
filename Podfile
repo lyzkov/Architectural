@@ -6,6 +6,7 @@ target 'GitHubActivityFeed' do
   # Pods for GitHubActivityFeed
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
   pod 'RxFeedback'
   pod 'R.swift'
   pod 'Alamofire'
@@ -13,6 +14,7 @@ target 'GitHubActivityFeed' do
   pod 'RxStorm', :path => './RxStorm'
   pod 'RxCyclone', :path => './RxCyclone'
   pod 'Identity', :git => 'https://github.com/lyzkov/Identity.git', :tag => '0.2.1'
+  pod 'Action'
 
   target 'GitHubActivityFeedTests' do
     inherit! :search_paths

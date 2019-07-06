@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C9602D622AF4487AF5F59C0F /* Pods_GitHubActivityFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2DBA84133DE3DB1BD6A163 /* Pods_GitHubActivityFeedTests.framework */; };
+		F32F230522D0141100C379F6 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F230422D0141100C379F6 /* Renderable.swift */; };
+		F32F230722D0C23200C379F6 /* DataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F230622D0C23200C379F6 /* DataSources.swift */; };
 		F35F38E322C3DACA006718B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F38E222C3DACA006718B1 /* AppDelegate.swift */; };
 		F35F38EA22C3DACC006718B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35F38E922C3DACC006718B1 /* Assets.xcassets */; };
 		F35F38ED22C3DACC006718B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F38EB22C3DACC006718B1 /* LaunchScreen.storyboard */; };
 		F35F390B22C3EDFF006718B1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F390A22C3EDFF006718B1 /* R.generated.swift */; };
 		F35F391022C3F7DF006718B1 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F390F22C3F7DF006718B1 /* Activity.storyboard */; };
 		F35F391222C3FB14006718B1 /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391122C3FB14006718B1 /* ActivityListViewController.swift */; };
-		F35F391522C42140006718B1 /* ActivityCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F391422C42140006718B1 /* ActivityCellModel.swift */; };
 		F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392622C4D13C006718B1 /* GitHubApi.swift */; };
 		F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392922C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift */; };
 		F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F392B22C528F9006718B1 /* ActivityPool.swift */; };
@@ -23,6 +24,7 @@
 		F35F395522CCC2D7006718B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F395422CCC2D7006718B1 /* User.swift */; };
 		F35F395722CCC613006718B1 /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F395622CCC613006718B1 /* Payload.swift */; };
 		F35F395D22CD2DD4006718B1 /* ActivityListCyclone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F395C22CD2DD4006718B1 /* ActivityListCyclone.swift */; };
+		F35F395F22CE5851006718B1 /* ActivityListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35F395E22CE5851006718B1 /* ActivityListItem.swift */; };
 		FD15413344FDB2AC62C4851E /* Pods_GitHubActivityFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1EB7C0CF6552A7FA988724 /* Pods_GitHubActivityFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		CB1EB7C0CF6552A7FA988724 /* Pods_GitHubActivityFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubActivityFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF04B6277CAFEE887B5F3023 /* Pods-GitHubActivityFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubActivityFeed.release.xcconfig"; path = "Target Support Files/Pods-GitHubActivityFeed/Pods-GitHubActivityFeed.release.xcconfig"; sourceTree = "<group>"; };
 		E910C34640FCD2BBCEEAAD05 /* Pods-GitHubActivityFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubActivityFeedTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubActivityFeedTests/Pods-GitHubActivityFeedTests.release.xcconfig"; sourceTree = "<group>"; };
+		F32F230422D0141100C379F6 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		F32F230622D0C23200C379F6 /* DataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSources.swift; sourceTree = "<group>"; };
 		F35F38DF22C3DACA006718B1 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35F38E222C3DACA006718B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F35F38E922C3DACC006718B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +57,6 @@
 		F35F390A22C3EDFF006718B1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		F35F390F22C3F7DF006718B1 /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		F35F391122C3FB14006718B1 /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
-		F35F391422C42140006718B1 /* ActivityCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellModel.swift; sourceTree = "<group>"; };
 		F35F392622C4D13C006718B1 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		F35F392922C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ExpressibleByStringLiteral.swift"; sourceTree = "<group>"; };
 		F35F392B22C528F9006718B1 /* ActivityPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPool.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		F35F395422CCC2D7006718B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F35F395622CCC613006718B1 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		F35F395C22CD2DD4006718B1 /* ActivityListCyclone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListCyclone.swift; sourceTree = "<group>"; };
+		F35F395E22CE5851006718B1 /* ActivityListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,15 @@
 				9C2DBA84133DE3DB1BD6A163 /* Pods_GitHubActivityFeedTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F32F230322D013F600C379F6 /* Renderable */ = {
+			isa = PBXGroup;
+			children = (
+				F32F230422D0141100C379F6 /* Renderable.swift */,
+				F32F230622D0C23200C379F6 /* DataSources.swift */,
+			);
+			path = Renderable;
 			sourceTree = "<group>";
 		};
 		F35F38D622C3DACA006718B1 = {
@@ -147,6 +160,7 @@
 		F35F390222C3E0D2006718B1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F32F230322D013F600C379F6 /* Renderable */,
 				F35F392822C4D699006718B1 /* Extensions */,
 				F35F392522C4D10D006718B1 /* Networking */,
 			);
@@ -234,7 +248,7 @@
 		F35F391322C41B8D006718B1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F35F391422C42140006718B1 /* ActivityCellModel.swift */,
+				F35F395E22CE5851006718B1 /* ActivityListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,16 +471,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */,
-				F35F391522C42140006718B1 /* ActivityCellModel.swift in Sources */,
 				F35F395D22CD2DD4006718B1 /* ActivityListCyclone.swift in Sources */,
 				F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */,
 				F35F395522CCC2D7006718B1 /* User.swift in Sources */,
+				F32F230722D0C23200C379F6 /* DataSources.swift in Sources */,
 				F35F38E322C3DACA006718B1 /* AppDelegate.swift in Sources */,
 				F35F393622C52C63006718B1 /* Activity.swift in Sources */,
 				F35F395322CCC2C2006718B1 /* Repository.swift in Sources */,
 				F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */,
+				F32F230522D0141100C379F6 /* Renderable.swift in Sources */,
 				F35F395722CCC613006718B1 /* Payload.swift in Sources */,
 				F35F391222C3FB14006718B1 /* ActivityListViewController.swift in Sources */,
+				F35F395F22CE5851006718B1 /* ActivityListItem.swift in Sources */,
 				F35F390B22C3EDFF006718B1 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

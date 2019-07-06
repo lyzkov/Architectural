@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCyclone
+import Action
 
 final class ActivityListCyclone: Cyclone {
 
@@ -19,7 +20,7 @@ final class ActivityListCyclone: Cyclone {
             case load(activities: [Activity])
         }
 
-        private let activities: [Activity]
+        let activities: [Activity]
 
         static var initial = State(activities: [])
 
@@ -30,29 +31,43 @@ final class ActivityListCyclone: Cyclone {
             }
         }
 
-        var activityList: [ActivityCellModel] {
-            return activities.compactMap(ActivityCellModel.init(from:))
-        }
-
     }
 
-    // MARK: - Events
+    // MARK: - Inputs
 
-    private lazy var loadLastActivities = activityPool.list(page: 1, perPage: maxLenght).map(Event.load(activities:))
+    lazy var refresh = Action<Void, [Activity]> { [activityPool, listSize] _ in
+        activityPool.list(page: 1, perPage: listSize)
+    }
 
     // MARK: - Outputs
 
-    lazy var output = state(from: loadLastActivities)
+    lazy var output = state(from: pollingLastActivities, refreshLastActivities)
+
+    lazy var activityList = output[\.activities]
+        .map { $0.compactMap(ActivityListItem.init(from:)) }
+
+    // MARK: - Events
+
+    private lazy var pollingLastActivities = activityPool.bufferedStream(interval: pollingInterval, size: listSize)
+        .map(Event.load(activities:))
+
+    private lazy var refreshLastActivities = refresh.elements
+        .map(Event.load(activities:))
 
     // MARK: - Dependencies
 
     private let activityPool: ActivityPool
 
-    private let maxLenght: Int
+    private let listSize: Int
 
-    init(activityPool: ActivityPool = ActivityPool(), maxLenght: Int = 20) {
+    private let pollingInterval: RxTimeInterval
+
+    init(activityPool: ActivityPool = ActivityPool(),
+         listSize: Int = 20,
+         pollingInterval: RxTimeInterval = .seconds(60)) {
         self.activityPool = activityPool
-        self.maxLenght = maxLenght
+        self.listSize = listSize
+        self.pollingInterval = pollingInterval
     }
 
 }

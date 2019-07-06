@@ -8,12 +8,23 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
-import RxCyclone
+import RxDataSources
 
 final class ActivityListViewController: UIViewController {
 
-    @IBOutlet private weak var tableView: UITableView!
+    // MARK: - Outlets
+
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.refreshControl = refreshControl
+        }
+    }
+
+    // MARK: - Controls
+
+    private let refreshControl = UIRefreshControl()
+
+    // MARK: - Dependencies
 
     private let cyclone = ActivityListCyclone()
 
@@ -22,21 +33,41 @@ final class ActivityListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bind()
+        cyclone.activityList.render(with: self).disposed(by: disposeBag)
+
+        refreshControl.rx.bind(to: cyclone.refresh, input: ())
     }
 
-    private func bind() {
-        // Configure cells
+}
 
-        cyclone.output[\.activityList]
-            .asDriver(onErrorJustReturn: [])
-            .drive(tableView.rx.items(
-                cellIdentifier: R.reuseIdentifier.activityCell.identifier,
-                cellType: UITableViewCell.self
-            )) { _, activity, cell in
-                cell.textLabel?.text = activity.description
-            }
-            .disposed(by: disposeBag)
+// TODO: render data in cell
+
+extension ActivityListViewController: ListRendering, TableViewConfiguring {
+
+    func configureCell(dataSource: TableViewSectionedDataSource<AnimatableSectionModel<String, ActivityListItem>>, tableView: UITableView, indexPath: IndexPath, item: ActivityListItem) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: R.reuseIdentifier.activityCell.identifier,
+            for: indexPath
+        )
+        cell.textLabel?.text = item.description
+
+        return cell
     }
 
+}
+
+extension ActivityListItem: Equatable {
+
+    static func ==(lhs: ActivityListItem, rhs: ActivityListItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+}
+
+extension ActivityListItem: RxDataSources.IdentifiableType {
+
+    var identity: ID {
+        return id
+    }
+    
 }
