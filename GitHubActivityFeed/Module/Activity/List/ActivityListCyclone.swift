@@ -48,7 +48,13 @@ final class ActivityListCyclone: Cyclone {
 
     // MARK: - Events
 
-    private lazy var pollingLastActivities = activityPool.bufferedStream(interval: pollingInterval, size: listSize)
+    private lazy var pollingLastActivities = activityPool.bufferedStream(
+            interval: pollingInterval,
+            size: listSize,
+            filters: ActivityListFilters(userName: "lyzkov", predicate: nil/*{ activity in
+                activity.type?.rawValue == ActivityType.issues.rawValue
+            }*/)
+        )
         .map(Event.load(activities:))
 
     private lazy var refreshLastActivities = refresh.elements

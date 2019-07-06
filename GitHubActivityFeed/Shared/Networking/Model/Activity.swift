@@ -8,7 +8,7 @@
 
 import Identity
 
-enum ActivityType: String, Decodable {
+enum ActivityType: String, CaseIterable, Decodable {
     case push = "PushEvent"
     case fork = "ForkEvent"
     case issues = "IssuesEvent"
