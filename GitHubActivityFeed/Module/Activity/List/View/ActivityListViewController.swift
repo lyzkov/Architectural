@@ -14,15 +14,11 @@ final class ActivityListViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.refreshControl = refreshControl
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
 
-    // MARK: - Controls
+    @IBOutlet weak var pushOnlySwitch: UISwitch!
 
-    private let refreshControl = UIRefreshControl()
+    @IBOutlet weak var userNameSearch: UISearchBar!
 
     // MARK: - Dependencies
 
@@ -35,7 +31,13 @@ final class ActivityListViewController: UIViewController {
 
         cyclone.activityList.render(with: self).disposed(by: disposeBag)
 
-        refreshControl.rx.bind(to: cyclone.refresh, input: ())
+        userNameSearch.rx.text.orEmpty
+            .throttle(.seconds(1), latest: true, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bind(to: cyclone.searchByUser)
+            .disposed(by: disposeBag)
+        
+        pushOnlySwitch.rx.isOn.bind(to: cyclone.pushOnly).disposed(by: disposeBag)
     }
 
 }

@@ -8,7 +8,6 @@
 
 import RxSwift
 import RxCyclone
-import Action
 
 final class ActivityListCyclone: Cyclone {
 
@@ -18,16 +17,20 @@ final class ActivityListCyclone: Cyclone {
 
         enum Event: EventType {
             case load(activities: [Activity])
+            case filter(ActivityListFilters)
         }
 
         let activities: [Activity]
+        let filters: ActivityListFilters
 
-        static var initial = State(activities: [])
+        static var initial = State(activities: [], filters: .init())
 
         static func reduce(state: State, event: Event) -> State {
             switch event {
             case .load(let activities):
-                return .init(activities: activities)
+                return .init(activities: activities, filters: state.filters)
+            case .filter(let filters):
+                return .init(activities: [], filters: filters)
             }
         }
 
@@ -35,24 +38,38 @@ final class ActivityListCyclone: Cyclone {
 
     // MARK: - Inputs
 
-    lazy var refresh = Action<Void, [Activity]> { [activityPool, listSize] _ in
-        activityPool.list(page: 1, perPage: listSize)
-    }
+    let searchByUser = PublishSubject<String>()
+
+    let pushOnly = PublishSubject<Bool>()
 
     // MARK: - Outputs
 
-    lazy var output = state(from: pollingLastActivities, refreshLastActivities)
+    lazy var output = state(from:
+        pollingLastActivities.map(Event.load(activities:)),
+        filterLastActivities.map(Event.filter)
+    )
 
     lazy var activityList = output[\.activities]
         .map { $0.compactMap(ActivityListItem.init(from:)) }
+        .map { $0.sorted { $0.date < $1.date } }
 
     // MARK: - Events
 
-    private lazy var pollingLastActivities = activityPool.bufferedStream(interval: pollingInterval, size: listSize)
-        .map(Event.load(activities:))
+    private lazy var pollingLastActivities = filterLastActivities.startWith(.init())
+        .flatMapLatest { [unowned self] filters in
+            self.activityPool.bufferedStream(interval: self.pollingInterval, size: self.listSize, filters: filters)
+                .catchErrorJustReturn([])
+        }
 
-    private lazy var refreshLastActivities = refresh.elements
-        .map(Event.load(activities:))
+    private lazy var filterLastActivities = Observable.combineLatest(searchByUser, pushOnly)
+        .map { userName, pushOnly in
+            ActivityListFilters(
+                userName: userName,
+                predicate: { activity in
+                    pushOnly ? activity.type == .push : true
+                }
+            )
+        }
 
     // MARK: - Dependencies
 
@@ -62,9 +79,7 @@ final class ActivityListCyclone: Cyclone {
 
     private let pollingInterval: RxTimeInterval
 
-    init(activityPool: ActivityPool = ActivityPool(),
-         listSize: Int = 20,
-         pollingInterval: RxTimeInterval = .seconds(60)) {
+    init(activityPool: ActivityPool = .init(), listSize: Int = 20, pollingInterval: RxTimeInterval = .seconds(60)) {
         self.activityPool = activityPool
         self.listSize = listSize
         self.pollingInterval = pollingInterval

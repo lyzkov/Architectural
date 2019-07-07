@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-GitHubActivityFeed/Pods-GitHubActivityFeed-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Action/Action.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/Identity/Identity.framework
