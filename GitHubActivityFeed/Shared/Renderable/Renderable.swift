@@ -21,7 +21,7 @@ protocol ListRendering: class {
 extension ObservableConvertibleType {
 
     func render<Renderer: ListRendering>(with renderer: Renderer) -> Disposable where Element == [Renderer.Item] {
-            return asObservable().bind(to: renderer.items)
+            return asDriver(onErrorJustReturn: []).drive(renderer.items)
     }
 
 }

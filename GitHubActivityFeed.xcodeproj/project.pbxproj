@@ -241,7 +241,7 @@
 		F35F390D22C3F7AA006718B1 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				F35F391322C41B8D006718B1 /* Model */,
+				F35F391322C41B8D006718B1 /* Renderable */,
 				F35F390E22C3F7B9006718B1 /* View */,
 				F35F395C22CD2DD4006718B1 /* ActivityListCyclone.swift */,
 			);
@@ -256,12 +256,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F35F391322C41B8D006718B1 /* Model */ = {
+		F35F391322C41B8D006718B1 /* Renderable */ = {
 			isa = PBXGroup;
 			children = (
 				F35F395E22CE5851006718B1 /* ActivityListItem.swift */,
 			);
-			path = Model;
+			path = Renderable;
 			sourceTree = "<group>";
 		};
 		F35F392522C4D10D006718B1 /* Networking */ = {

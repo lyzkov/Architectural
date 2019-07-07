@@ -34,6 +34,13 @@ struct GitHubApi: RestAPI {
 
             let page: Int
             let perPage: Int
+
+            var parameters: Parameters {
+                return [
+                    "page": page,
+                    "perPage": perPage
+                ]
+            }
         }
 
         private struct ListPerformedBy: GetEndpoint, Resource {
@@ -47,6 +54,13 @@ struct GitHubApi: RestAPI {
             let userName: String
             let page: Int
             let perPage: Int
+
+            var parameters: Parameters {
+                return [
+                    "page": page,
+                    "perPage": perPage
+                ]
+            }
         }
 
     }

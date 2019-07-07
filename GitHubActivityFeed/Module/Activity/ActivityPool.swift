@@ -14,26 +14,26 @@ final class ActivityPool: DataPool {
     typealias DataRequest = GitHubApi.Activity
 
     func list(page: Int, perPage: Int) -> Single<[Activity]> {
-//        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
-//            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
-//            .asSingle()
-        return decodedData(from: .listPublicEvents(page: page, perPage: perPage))
+        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
+            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
+            .asSingle()
+//        return decodedData(from: .listPublicEvents(page: page, perPage: perPage))
     }
 
     func list(byUserName userName: String, page: Int, perPage: Int) -> Single<[Activity]> {
-//        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
-//            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
-//            .asSingle()
-        return decodedData(from: .listPerformedBy(userName: userName, page: page, perPage: perPage))
+        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
+            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
+            .asSingle()
+//        return decodedData(from: .listPerformedBy(userName: userName, page: page, perPage: perPage))
     }
 
-    func filtered(byUserName userName: String?, size: Int = 20, predicate: ((Activity) -> Bool)? = nil) -> Single<[Activity]> {
+    func filtered(byUserName userName: String, size: Int = 20, predicate: ((Activity) -> Bool)? = nil) -> Single<[Activity]> {
         func factory(page: Int) -> Observable<[Activity]> {
             let result: Observable<[Activity]>
-            if let userName = userName {
-                result = list(byUserName: userName, page: page, perPage: size).asObservable()
-            } else {
+            if userName.isEmpty {
                 result = list(page: page, perPage: size).asObservable()
+            } else {
+                result = list(byUserName: userName, page: page, perPage: size).asObservable()
             }
             if let predicate = predicate {
                 return result
@@ -81,7 +81,7 @@ final class ActivityPool: DataPool {
     }
 
     func bufferedStream(interval: RxTimeInterval = .seconds(60), size: Int = 20,
-                        filters: ActivityListFilters = ActivityListFilters()) -> Observable<[Activity]> {
+                        filters: ActivityListFilters = .init()) -> Observable<[Activity]> {
         return stream(interval: interval, size: size, filters: filters)
             .buffer(timeSpan: interval, count: size, scheduler: MainScheduler.asyncInstance)
             .map(Set.init)
@@ -91,10 +91,10 @@ final class ActivityPool: DataPool {
 }
 
 struct ActivityListFilters {
-    let userName: String?
+    let userName: String
     let predicate: ((Activity) -> Bool)?
 
-    init(userName: String? = nil, predicate: ((Activity) -> Bool)? = nil) {
+    init(userName: String = "", predicate: ((Activity) -> Bool)? = nil) {
         self.userName = userName
         self.predicate = predicate
     }
