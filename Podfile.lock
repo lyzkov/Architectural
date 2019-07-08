@@ -33,9 +33,10 @@ PODS:
     - RxAlamofire (~> 5.0)
     - RxSwift (~> 5.0)
   - RxSwift (5.0.0)
+  - SinkEmAll (0.1.0):
+    - RxSwift (~> 5)
 
 DEPENDENCIES:
-  - Alamofire
   - Identity (from `https://github.com/lyzkov/Identity.git`, tag `0.2.1`)
   - Kingfisher
   - R.swift
@@ -43,10 +44,10 @@ DEPENDENCIES:
   - RxCocoa
   - RxCyclone (from `./RxCyclone`)
   - RxDataSources
-  - RxFeedback
   - RxNavy (from `./RxNavy`)
   - RxStorm (from `./RxStorm`)
   - RxSwift
+  - SinkEmAll (from `https://github.com/lyzkov/SinkEmAll.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -72,11 +73,16 @@ EXTERNAL SOURCES:
     :path: "./RxNavy"
   RxStorm:
     :path: "./RxStorm"
+  SinkEmAll:
+    :git: https://github.com/lyzkov/SinkEmAll.git
 
 CHECKOUT OPTIONS:
   Identity:
     :git: https://github.com/lyzkov/Identity.git
     :tag: 0.2.1
+  SinkEmAll:
+    :commit: b5fc6c0282bfdea46cd32c148dfc501e42083d42
+    :git: https://github.com/lyzkov/SinkEmAll.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -94,7 +100,8 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxStorm: 09cc65df355cf061b11bbe35c562a4cb0c15bcd0
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SinkEmAll: 3c1bd46e3c0b35457edf38fd85b5254a5fced9e5
 
-PODFILE CHECKSUM: e3ca716edf633dd37b332a032be06a5edd680e89
+PODFILE CHECKSUM: 23a0b3d928d604c2ec221e9ebbc74028aa980dbb
 
 COCOAPODS: 1.7.3

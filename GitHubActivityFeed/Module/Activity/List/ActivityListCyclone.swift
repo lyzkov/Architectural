@@ -8,6 +8,8 @@
 
 import RxSwift
 import RxCyclone
+import Alamofire
+import SinkEmAll
 
 final class ActivityListCyclone: Cyclone {
 
@@ -72,7 +74,10 @@ final class ActivityListCyclone: Cyclone {
         .startWith(.init())
         .flatMapLatest { [unowned self] filters in
             self.pool.bufferedStream(interval: self.pollingInterval, size: self.listSize, filters: filters)
-                .debug()
+                .shootError(shooter: { (error: SkippableError, _) in
+                    .just(error.canSkip ? .sink : .hit(error))
+                })
+                .shootError(with: self.errorShooter)
                 .catchErrorJustReturn([])
         }
 
@@ -90,13 +95,18 @@ final class ActivityListCyclone: Cyclone {
 
     // MARK: - Dependencies
 
+    private let errorShooter: AlertErrorShooter
+
     private let pool: ActivityPool
 
     private let listSize: Int
 
     private let pollingInterval: RxTimeInterval
 
-    init(pool: ActivityPool = .init(), listSize: Int = 20, pollingInterval: RxTimeInterval = .seconds(60)) {
+    init(errorShooter: AlertErrorShooter,
+         pool: ActivityPool = .init(),
+         listSize: Int = 20, pollingInterval: RxTimeInterval = .seconds(60)) {
+        self.errorShooter = errorShooter
         self.pool = pool
         self.listSize = listSize
         self.pollingInterval = pollingInterval

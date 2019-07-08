@@ -24,7 +24,7 @@ final class ActivityListViewController: UIViewController {
 
     // MARK: - Dependencies
 
-    let cyclone = ActivityListCyclone()
+    lazy var cyclone = ActivityListCyclone(errorShooter: AlertErrorShooter(presenter: self))
 
     private let disposeBag = DisposeBag()
 
@@ -87,6 +87,10 @@ final class ActivityListViewController: UIViewController {
                 destination.cyclone.activity.onNext(activity)
             })
             .disposed(by: disposeBag)
+
+        // Errors
+
+
     }
 
 }

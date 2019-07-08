@@ -9,15 +9,25 @@
 import RxSwift
 import RxStorm
 import Identity
+import SinkEmAll
+import Alamofire
 
 final class ActivityPool: DataPool {
     typealias DataRequest = GitHubApi.Activity
+
+    let fatalErrorShooter: FatalErrorShooter
+
+    init(fatalErrorShooter: FatalErrorShooter = .init()) {
+        self.fatalErrorShooter = fatalErrorShooter
+    }
 
     func list(page: Int, perPage: Int) -> Single<[Activity]> {
 //        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
 //            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
 //            .asSingle()
         return decodedData(from: .listPublicEvents(page: page, perPage: perPage))
+            .shootError(with: fatalErrorShooter)
+            .asSingle()
     }
 
     func list(byUserName userName: String, page: Int, perPage: Int) -> Single<[Activity]> {
@@ -25,6 +35,8 @@ final class ActivityPool: DataPool {
 //            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
 //            .asSingle()
         return decodedData(from: .listPerformedBy(userName: userName, page: page, perPage: perPage))
+            .shootError(with: fatalErrorShooter)
+            .asSingle()
     }
 
     func filtered(byUserName userName: String, size: Int = 20, predicate: ((Activity) -> Bool)? = nil) -> Single<[Activity]> {

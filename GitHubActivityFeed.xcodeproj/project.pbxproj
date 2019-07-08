@@ -33,6 +33,9 @@
 		F379C2B222D3ABC700EC3D9C /* ActivityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B122D3ABC700EC3D9C /* ActivityListCell.swift */; };
 		F379C2B422D3C2BD00EC3D9C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B322D3C2BD00EC3D9C /* Comment.swift */; };
 		F379C2B622D3E7E400EC3D9C /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B522D3E7E400EC3D9C /* Date+Formatter.swift */; };
+		F379C2B922D3FD0A00EC3D9C /* AlertErrorShooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B822D3FD0A00EC3D9C /* AlertErrorShooter.swift */; };
+		F379C2BB22D4005100EC3D9C /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2BA22D4005100EC3D9C /* Errors.swift */; };
+		F379C2BD22D4010800EC3D9C /* FatalErrorShooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2BC22D4010800EC3D9C /* FatalErrorShooter.swift */; };
 		FD15413344FDB2AC62C4851E /* Pods_GitHubActivityFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1EB7C0CF6552A7FA988724 /* Pods_GitHubActivityFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,9 @@
 		F379C2B122D3ABC700EC3D9C /* ActivityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListCell.swift; sourceTree = "<group>"; };
 		F379C2B322D3C2BD00EC3D9C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F379C2B522D3E7E400EC3D9C /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		F379C2B822D3FD0A00EC3D9C /* AlertErrorShooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorShooter.swift; sourceTree = "<group>"; };
+		F379C2BA22D4005100EC3D9C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		F379C2BC22D4010800EC3D9C /* FatalErrorShooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorShooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		F35F390222C3E0D2006718B1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				F379C2B722D3FCE900EC3D9C /* Error */,
 				F32F230822D1366300C379F6 /* Fakeable */,
 				F32F230322D013F600C379F6 /* Renderable */,
 				F35F392822C4D699006718B1 /* Extensions */,
@@ -335,6 +342,16 @@
 				F379C2AD22D349B900EC3D9C /* ActivityDetails.swift */,
 			);
 			path = Renderable;
+			sourceTree = "<group>";
+		};
+		F379C2B722D3FCE900EC3D9C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F379C2B822D3FD0A00EC3D9C /* AlertErrorShooter.swift */,
+				F379C2BC22D4010800EC3D9C /* FatalErrorShooter.swift */,
+				F379C2BA22D4005100EC3D9C /* Errors.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +546,9 @@
 				F379C2A922D29BD500EC3D9C /* ActivityDetailsViewController.swift in Sources */,
 				F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */,
 				F35F395D22CD2DD4006718B1 /* ActivityListCyclone.swift in Sources */,
+				F379C2BD22D4010800EC3D9C /* FatalErrorShooter.swift in Sources */,
 				F379C2B022D39EEE00EC3D9C /* Issue.swift in Sources */,
+				F379C2BB22D4005100EC3D9C /* Errors.swift in Sources */,
 				F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */,
 				F35F395522CCC2D7006718B1 /* User.swift in Sources */,
 				F379C2B222D3ABC700EC3D9C /* ActivityListCell.swift in Sources */,
@@ -543,6 +562,7 @@
 				F35F395322CCC2C2006718B1 /* Repository.swift in Sources */,
 				F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */,
 				F32F230522D0141100C379F6 /* Renderable.swift in Sources */,
+				F379C2B922D3FD0A00EC3D9C /* AlertErrorShooter.swift in Sources */,
 				F35F395722CCC613006718B1 /* Payload.swift in Sources */,
 				F32F230A22D1367200C379F6 /* Fakeable.swift in Sources */,
 				F35F391222C3FB14006718B1 /* ActivityListViewController.swift in Sources */,
