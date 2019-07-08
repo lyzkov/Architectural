@@ -18,19 +18,24 @@ final class ActivityListCyclone: Cyclone {
         enum Event: EventType {
             case load(activities: [Activity])
             case filter(ActivityListFilters)
+            case select(id: Activity.ID)
         }
 
         let activities: [Activity]
         let filters: ActivityListFilters
+        let selected: Activity?
 
-        static var initial = State(activities: [], filters: .init())
+        static var initial = State(activities: [], filters: .init(), selected: nil)
 
         static func reduce(state: State, event: Event) -> State {
             switch event {
             case .load(let activities):
-                return .init(activities: activities, filters: state.filters)
+                return .init(activities: activities, filters: state.filters, selected: nil)
             case .filter(let filters):
-                return .init(activities: [], filters: filters)
+                return .init(activities: [], filters: filters, selected: nil)
+            case .select(let id):
+                let selected = state.activities.first { $0.id == id }
+                return .init(activities: state.activities, filters: state.filters, selected: selected)
             }
         }
 
@@ -42,26 +47,36 @@ final class ActivityListCyclone: Cyclone {
 
     let pushOnly = PublishSubject<Bool>()
 
+    let select = PublishSubject<Activity.ID>()
+
     // MARK: - Outputs
 
     lazy var output = state(from:
-        pollingLastActivities.map(Event.load(activities:)),
-        filterLastActivities.map(Event.filter)
+        pollingSource.map(Event.load(activities:)),
+        filteringSource.map(Event.filter),
+        selectionSource.map(Event.select(id:))
     )
 
-    lazy var activityList = output[\.activities]
+    lazy var listed = output[\.activities]
         .map { $0.compactMap(ActivityListItem.init(from:)) }
+        .share(replay: 1)
 
-    // MARK: - Events
+    lazy var selected = output[\.selected]
+        .compactMap { $0 }
+        .distinctUntilChanged()
+        .share(replay: 1)
 
-    private lazy var pollingLastActivities = filterLastActivities
+    // MARK: - Sources
+
+    private lazy var pollingSource = filteringSource
         .startWith(.init())
         .flatMapLatest { [unowned self] filters in
-            self.activityPool.bufferedStream(interval: self.pollingInterval, size: self.listSize, filters: filters)
+            self.pool.bufferedStream(interval: self.pollingInterval, size: self.listSize, filters: filters)
+                .debug()
                 .catchErrorJustReturn([])
         }
 
-    private lazy var filterLastActivities = Observable.combineLatest(searchByUser, pushOnly)
+    private lazy var filteringSource = Observable.combineLatest(searchByUser, pushOnly)
         .map { userName, pushOnly in
             ActivityListFilters(
                 userName: userName,
@@ -71,16 +86,18 @@ final class ActivityListCyclone: Cyclone {
             )
         }
 
+    private lazy var selectionSource = select
+
     // MARK: - Dependencies
 
-    private let activityPool: ActivityPool
+    private let pool: ActivityPool
 
     private let listSize: Int
 
     private let pollingInterval: RxTimeInterval
 
-    init(activityPool: ActivityPool = .init(), listSize: Int = 20, pollingInterval: RxTimeInterval = .seconds(60)) {
-        self.activityPool = activityPool
+    init(pool: ActivityPool = .init(), listSize: Int = 20, pollingInterval: RxTimeInterval = .seconds(60)) {
+        self.pool = pool
         self.listSize = listSize
         self.pollingInterval = pollingInterval
     }

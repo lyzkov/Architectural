@@ -38,7 +38,7 @@ final class ActivityDetailsCyclone: Cyclone {
 
     lazy var output = state(from: activity.map(Event.load(activity:)))
 
-    lazy var activityDetails = output[\.activity]
+    lazy var detailed = output[\.activity]
         .compactMap { $0.map(ActivityDetails.init(from:)) }
 
 }

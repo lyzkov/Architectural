@@ -13,7 +13,11 @@ final class ActivityDetailsViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet private weak var actionDescription: UILabel!
+    @IBOutlet weak var actorAvatar: UIImageView!
+
+    @IBOutlet weak var activityTitle: UILabel!
+
+    @IBOutlet weak var activityBody: UILabel!
 
     // MARK: - Dependencies
 
@@ -24,7 +28,7 @@ final class ActivityDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cyclone.activityDetails.render(with: self).disposed(by: disposeBag)
+        cyclone.detailed.render(with: self).disposed(by: disposeBag)
     }
 
 }
@@ -32,7 +36,10 @@ final class ActivityDetailsViewController: UIViewController {
 extension ActivityDetailsViewController: Rendering {
 
     func render(item: ActivityDetails?) {
-        actionDescription.text = item?.description
+        actorAvatar.kf.indicatorType = .activity
+        actorAvatar.kf.setImage(with: item?.avatarUrl)
+        activityTitle.text = item?.title
+        activityBody.text = item?.body
     }
 
 }

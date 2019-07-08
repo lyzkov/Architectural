@@ -9,17 +9,23 @@
 import Foundation
 
 struct ActivityDetails: Renderable {
-    let description: String
+    let title: String
+    let body: String?
+    let avatarUrl: URL
+    let date: Date
 }
 
 extension ActivityDetails {
 
     init?(from activity: Activity) {
-        guard let type = activity.type else {
+        guard activity.type != nil else {
             return nil
         }
 
-        description = type.rawValue
+        title = activity.description.title
+        body = activity.description.body
+        avatarUrl = activity.actor.avatarUrl
+        date = activity.createdAt
     }
 
 }

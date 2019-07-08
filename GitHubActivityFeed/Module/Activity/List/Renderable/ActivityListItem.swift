@@ -8,26 +8,24 @@
 
 import Identity
 
-struct ActivityListItem: Identifiable {
-    let id: ID
-    let description: String
+struct ActivityListItem: Renderable {
+    let id: Activity.ID
+    let title: String
     let date: Date
-    let avatar: URL?
+    let avatarUrl: URL?
 }
 
 extension ActivityListItem {
 
     init?(from activity: Activity) {
-        guard let type = activity.type else {
+        guard activity.type != nil else {
             return nil
         }
-        id = .init(rawValue: activity.id.rawValue)
-        description = type.rawValue
+        
+        id = activity.id
+        title = activity.description.title
         date = activity.createdAt
-        avatar = nil
+        avatarUrl = activity.actor.avatarUrl
     }
 
-}
-
-extension ActivityListItem: Renderable {
 }

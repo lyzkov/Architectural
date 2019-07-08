@@ -14,17 +14,17 @@ final class ActivityPool: DataPool {
     typealias DataRequest = GitHubApi.Activity
 
     func list(page: Int, perPage: Int) -> Single<[Activity]> {
-        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
-            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
-            .asSingle()
-//        return decodedData(from: .listPublicEvents(page: page, perPage: perPage))
+//        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
+//            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
+//            .asSingle()
+        return decodedData(from: .listPublicEvents(page: page, perPage: perPage))
     }
 
     func list(byUserName userName: String, page: Int, perPage: Int) -> Single<[Activity]> {
-        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
-            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
-            .asSingle()
-//        return decodedData(from: .listPerformedBy(userName: userName, page: page, perPage: perPage))
+//        return Observable<[Activity]>.just((0 ..< perPage).map { _ in .fake() })
+//            .delay(.milliseconds(350), scheduler: MainScheduler.asyncInstance)
+//            .asSingle()
+        return decodedData(from: .listPerformedBy(userName: userName, page: page, perPage: perPage))
     }
 
     func filtered(byUserName userName: String, size: Int = 20, predicate: ((Activity) -> Bool)? = nil) -> Single<[Activity]> {

@@ -29,6 +29,10 @@
 		F379C2A922D29BD500EC3D9C /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2A822D29BD500EC3D9C /* ActivityDetailsViewController.swift */; };
 		F379C2AB22D29D8A00EC3D9C /* ActivityDetailsCyclone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2AA22D29D8A00EC3D9C /* ActivityDetailsCyclone.swift */; };
 		F379C2AE22D349B900EC3D9C /* ActivityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2AD22D349B900EC3D9C /* ActivityDetails.swift */; };
+		F379C2B022D39EEE00EC3D9C /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2AF22D39EEE00EC3D9C /* Issue.swift */; };
+		F379C2B222D3ABC700EC3D9C /* ActivityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B122D3ABC700EC3D9C /* ActivityListCell.swift */; };
+		F379C2B422D3C2BD00EC3D9C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B322D3C2BD00EC3D9C /* Comment.swift */; };
+		F379C2B622D3E7E400EC3D9C /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F379C2B522D3E7E400EC3D9C /* Date+Formatter.swift */; };
 		FD15413344FDB2AC62C4851E /* Pods_GitHubActivityFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1EB7C0CF6552A7FA988724 /* Pods_GitHubActivityFeed.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,10 @@
 		F379C2A822D29BD500EC3D9C /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		F379C2AA22D29D8A00EC3D9C /* ActivityDetailsCyclone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsCyclone.swift; sourceTree = "<group>"; };
 		F379C2AD22D349B900EC3D9C /* ActivityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetails.swift; sourceTree = "<group>"; };
+		F379C2AF22D39EEE00EC3D9C /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		F379C2B122D3ABC700EC3D9C /* ActivityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListCell.swift; sourceTree = "<group>"; };
+		F379C2B322D3C2BD00EC3D9C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F379C2B522D3E7E400EC3D9C /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				F35F391122C3FB14006718B1 /* ActivityListViewController.swift */,
+				F379C2B122D3ABC700EC3D9C /* ActivityListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				F35F392922C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift */,
+				F379C2B522D3E7E400EC3D9C /* Date+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,6 +305,8 @@
 				F35F395222CCC2C2006718B1 /* Repository.swift */,
 				F35F395422CCC2D7006718B1 /* User.swift */,
 				F35F395622CCC613006718B1 /* Payload.swift */,
+				F379C2AF22D39EEE00EC3D9C /* Issue.swift */,
+				F379C2B322D3C2BD00EC3D9C /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -517,12 +529,16 @@
 				F379C2A922D29BD500EC3D9C /* ActivityDetailsViewController.swift in Sources */,
 				F35F392C22C528F9006718B1 /* ActivityPool.swift in Sources */,
 				F35F395D22CD2DD4006718B1 /* ActivityListCyclone.swift in Sources */,
+				F379C2B022D39EEE00EC3D9C /* Issue.swift in Sources */,
 				F35F392722C4D13C006718B1 /* GitHubApi.swift in Sources */,
 				F35F395522CCC2D7006718B1 /* User.swift in Sources */,
+				F379C2B222D3ABC700EC3D9C /* ActivityListCell.swift in Sources */,
 				F379C2AB22D29D8A00EC3D9C /* ActivityDetailsCyclone.swift in Sources */,
 				F32F230722D0C23200C379F6 /* DataSources.swift in Sources */,
 				F35F38E322C3DACA006718B1 /* AppDelegate.swift in Sources */,
+				F379C2B422D3C2BD00EC3D9C /* Comment.swift in Sources */,
 				F35F393622C52C63006718B1 /* Activity.swift in Sources */,
+				F379C2B622D3E7E400EC3D9C /* Date+Formatter.swift in Sources */,
 				F379C2AE22D349B900EC3D9C /* ActivityDetails.swift in Sources */,
 				F35F395322CCC2C2006718B1 /* Repository.swift in Sources */,
 				F35F392A22C4D6B3006718B1 /* URL+ExpressibleByStringLiteral.swift in Sources */,

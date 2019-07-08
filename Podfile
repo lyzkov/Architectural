@@ -15,6 +15,7 @@ target 'GitHubActivityFeed' do
   pod 'RxCyclone', :path => './RxCyclone'
   pod 'RxNavy', :path => './RxNavy'
   pod 'Identity', :git => 'https://github.com/lyzkov/Identity.git', :tag => '0.2.1'
+  pod 'Kingfisher'
 
   target 'GitHubActivityFeedTests' do
     inherit! :search_paths
