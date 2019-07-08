@@ -8,6 +8,7 @@ ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxCyclone/RxCyclone.framework
 ${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
 ${BUILT_PRODUCTS_DIR}/RxFeedback/RxFeedback.framework
+${BUILT_PRODUCTS_DIR}/RxNavy/RxNavy.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxStorm/RxStorm.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework

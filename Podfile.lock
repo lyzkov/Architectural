@@ -22,6 +22,9 @@ PODS:
   - RxFeedback (3.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
+  - RxNavy (0.1.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxStorm (0.1.0):
@@ -39,6 +42,7 @@ DEPENDENCIES:
   - RxCyclone (from `./RxCyclone`)
   - RxDataSources
   - RxFeedback
+  - RxNavy (from `./RxNavy`)
   - RxStorm (from `./RxStorm`)
   - RxSwift
 
@@ -61,6 +65,8 @@ EXTERNAL SOURCES:
     :tag: 0.2.1
   RxCyclone:
     :path: "./RxCyclone"
+  RxNavy:
+    :path: "./RxNavy"
   RxStorm:
     :path: "./RxStorm"
 
@@ -80,10 +86,11 @@ SPEC CHECKSUMS:
   RxCyclone: 1d9c189898c4e1d71b053f033b4aea43bbd76c28
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxFeedback: 4260d8dad5bba28b182c0b9ff5bce68c260de183
+  RxNavy: c4640ec3daf66089bb52824579f24c0f6876cc7c
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxStorm: 09cc65df355cf061b11bbe35c562a4cb0c15bcd0
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: e32fce5b8726c8b76c9d89b0309a56514552906d
+PODFILE CHECKSUM: 69988129208638df50f4d2f4654ee85a605d2e4b
 
 COCOAPODS: 1.7.3

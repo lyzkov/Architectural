@@ -59,6 +59,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="4Hv-dU-g64" kind="show" identifier="showDetails" id="css-lG-VAb"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -84,6 +87,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyS-vP-tDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="142.61083743842366"/>
+        </scene>
+        <!--Activity Details View Controller-->
+        <scene sceneID="ros-ye-bd1">
+            <objects>
+                <viewController id="4Hv-dU-g64" customClass="ActivityDetailsViewController" customModule="GitHubActivityFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IV6-VL-eqN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Action description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVj-hl-lMT">
+                                <rect key="frame" x="118" y="140" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wYj-Gd-1Rs"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionDescription" destination="SVj-hl-lMT" id="fIS-XF-yUf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mow-ol-Ofe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1249" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4uQ-gT-10B">

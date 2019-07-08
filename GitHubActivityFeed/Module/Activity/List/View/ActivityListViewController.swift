@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import RxNavy
 
 final class ActivityListViewController: UIViewController {
 
@@ -22,14 +23,18 @@ final class ActivityListViewController: UIViewController {
 
     // MARK: - Dependencies
 
-    private let cyclone = ActivityListCyclone()
+    let cyclone = ActivityListCyclone()
 
     private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // List
+
         cyclone.activityList.render(with: self).disposed(by: disposeBag)
+
+        // Filters
 
         userNameSearch.rx.text.orEmpty
             .throttle(.seconds(1), latest: true, scheduler: MainScheduler.instance)
@@ -38,6 +43,20 @@ final class ActivityListViewController: UIViewController {
             .disposed(by: disposeBag)
         
         pushOnlySwitch.rx.isOn.bind(to: cyclone.pushOnly).disposed(by: disposeBag)
+
+        // Segues
+
+        cyclone.output[\.activities]
+            .bind(
+                to: tableView.rx.selectedItem(
+                    segue: rx.segue(
+                        identifier: R.segue.activityListViewController.showDetails.identifier
+                    )
+                )
+            ) { (activity, destination: ActivityDetailsViewController) in
+                destination.cyclone.activity.onNext(activity)
+            }
+            .disposed(by: disposeBag)
     }
 
 }

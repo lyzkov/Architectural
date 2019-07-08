@@ -51,11 +51,11 @@ final class ActivityListCyclone: Cyclone {
 
     lazy var activityList = output[\.activities]
         .map { $0.compactMap(ActivityListItem.init(from:)) }
-        .map { $0.sorted { $0.date < $1.date } }
 
     // MARK: - Events
 
-    private lazy var pollingLastActivities = filterLastActivities.startWith(.init())
+    private lazy var pollingLastActivities = filterLastActivities
+        .startWith(.init())
         .flatMapLatest { [unowned self] filters in
             self.activityPool.bufferedStream(interval: self.pollingInterval, size: self.listSize, filters: filters)
                 .catchErrorJustReturn([])

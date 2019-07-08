@@ -86,6 +86,7 @@ final class ActivityPool: DataPool {
             .buffer(timeSpan: interval, count: size, scheduler: MainScheduler.asyncInstance)
             .map(Set.init)
             .map(Array.init)
+            .map { $0.sorted { $0.createdAt < $1.createdAt } }
     }
 
 }
