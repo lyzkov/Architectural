@@ -21,8 +21,11 @@ struct ForkPayload: Payload {
 
 struct IssuesPayload: Payload {
     let action: String?
+    let issue: Issue?
 }
 
 struct IssueCommentPayload: Payload {
     let action: String?
+    let issue: Issue?
+    let comment: Comment?
 }

@@ -18,8 +18,28 @@ struct R: Rswift.Validatable {
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `activityCell`.
-    static let activityCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "activityCell")
+    /// Reuse identifier `activityListCell`.
+    static let activityListCell: Rswift.ReuseIdentifier<ActivityListCell> = Rswift.ReuseIdentifier(identifier: "activityListCell")
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  struct segue {
+    /// This struct is generated for `ActivityListViewController`, and contains static references to 1 segues.
+    struct activityListViewController {
+      /// Segue identifier `showDetails`.
+      static let showDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, ActivityListViewController, ActivityDetailsViewController> = Rswift.StoryboardSegueIdentifier(identifier: "showDetails")
+      
+      /// Optionally returns a typed version of segue `showDetails`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, ActivityListViewController, ActivityDetailsViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.activityListViewController.showDetails, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
     
     fileprivate init() {}
   }

@@ -1,0 +1,6 @@
+framework module SinkEmAll {
+  umbrella header "SinkEmAll-umbrella.h"
+
+  export *
+  module * { export * }
+}
