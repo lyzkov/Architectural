@@ -21,6 +21,8 @@ final class ActivityDetailsViewController: UIViewController {
 
     // MARK: - Dependencies
 
+    // TODO: dependency injection
+
     let cyclone = ActivityDetailsCyclone()
 
     private let disposeBag = DisposeBag()

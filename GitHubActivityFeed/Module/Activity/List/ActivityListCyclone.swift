@@ -95,6 +95,8 @@ final class ActivityListCyclone: Cyclone {
 
     // MARK: - Dependencies
 
+    // TODO: dependency injection
+
     private let errorShooter: AlertErrorShooter
 
     private let pool: ActivityPool

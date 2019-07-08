@@ -15,6 +15,8 @@ import Alamofire
 final class ActivityPool: DataPool {
     typealias DataRequest = GitHubApi.Activity
 
+    // TODO: dependency injection
+
     let fatalErrorShooter: FatalErrorShooter
 
     init(fatalErrorShooter: FatalErrorShooter = .init()) {

@@ -24,6 +24,8 @@ final class ActivityListViewController: UIViewController {
 
     // MARK: - Dependencies
 
+    // TODO: dependency injection
+
     lazy var cyclone = ActivityListCyclone(errorShooter: AlertErrorShooter(presenter: self))
 
     private let disposeBag = DisposeBag()
