@@ -7,14 +7,16 @@ target 'GitHubActivityFeed' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
-  pod 'RxFeedback'
-  pod 'R.swift'
-  pod 'Alamofire'
   pod 'RxAlamofire'
+
   pod 'RxStorm', :path => './RxStorm'
   pod 'RxCyclone', :path => './RxCyclone'
+  pod 'RxNavy', :path => './RxNavy'
+  pod 'SinkEmAll', :git => 'https://github.com/lyzkov/SinkEmAll.git'
   pod 'Identity', :git => 'https://github.com/lyzkov/Identity.git', :tag => '0.2.1'
-  pod 'Action'
+
+  pod 'Kingfisher'
+  pod 'R.swift'
 
   target 'GitHubActivityFeedTests' do
     inherit! :search_paths

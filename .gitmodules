@@ -4,3 +4,6 @@
 [submodule "RxStorm"]
 	path = RxStorm
 	url = https://github.com/lyzkov/RxStorm.git
+[submodule "RxNavy"]
+	path = RxNavy
+	url = https://github.com/lyzkov/RxNavy.git

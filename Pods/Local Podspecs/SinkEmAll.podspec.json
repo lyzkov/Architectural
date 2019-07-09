@@ -1,0 +1,28 @@
+{
+  "name": "SinkEmAll",
+  "version": "0.1.0",
+  "summary": "An error handling reactive extension for fine-grained control over Abort, Retry, Fail?",
+  "homepage": "https://github.com/lyzkov/SinkEmAll",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "lyzkov": "lyzkov@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lyzkov/SinkEmAll.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Sources/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 5"
+    ]
+  },
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

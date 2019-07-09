@@ -11,15 +11,15 @@ import RxSwift
 
 protocol TableViewConfiguring {
     associatedtype ConfiguredItem: Renderable & IdentifiableType & Equatable
+    typealias DataSource = TableViewSectionedDataSource<AnimatableSectionModel<String, ConfiguredItem>>
 
     var tableView: UITableView! { get }
-    func configureCell(dataSource: TableViewSectionedDataSource<AnimatableSectionModel<String, ConfiguredItem>>,
-                       tableView: UITableView, indexPath: IndexPath, item: ConfiguredItem) -> UITableViewCell
+    func configureCell(dataSource: DataSource, tableView: UITableView, indexPath: IndexPath, item: ConfiguredItem) -> UITableViewCell
 }
 
 extension ListRendering where Self: TableViewConfiguring, ConfiguredItem == Item {
     private typealias SectionModel = AnimatableSectionModel<String, Item>
-    private typealias DataSource = RxTableViewSectionedAnimatedDataSource<SectionModel>
+    private typealias RxDataSource = RxTableViewSectionedAnimatedDataSource<SectionModel>
 
     var items: (Observable<[Item]>) -> Disposable {
         return { [weak self] source in
@@ -31,7 +31,7 @@ extension ListRendering where Self: TableViewConfiguring, ConfiguredItem == Item
                 .map { SectionModel(model: "", items: Array($0)) }
                 .map { [$0] }
 
-            return self.tableView.rx.items(dataSource: DataSource(configureCell: self.configureCell))(source)
+            return self.tableView.rx.items(dataSource: RxDataSource(configureCell: self.configureCell))(source)
         }
     }
 

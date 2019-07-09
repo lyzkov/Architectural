@@ -8,7 +8,7 @@
 
 import Identity
 
-enum ActivityType: String, Decodable {
+enum ActivityType: String, CaseIterable, Decodable {
     case push = "PushEvent"
     case fork = "ForkEvent"
     case issues = "IssuesEvent"
@@ -22,6 +22,39 @@ struct Activity: Identifiable {
     let repo: Repository
     let createdAt: Date
     let payload: Payload?
+}
+
+extension Activity {
+
+    struct Description {
+        let title: String
+        let body: String?
+    }
+
+    var description: Description {
+        let action: String
+        var body: String? = nil
+        switch type {
+        case .fork?:
+            action = "forked"
+        case .push?:
+            let payload = self.payload as? PushPayload
+            action = "pushed to" .. String(payload?.ref.split(separator: "/").last ?? "") .. "at"
+        case .issues?:
+            let payload = self.payload as? IssuesPayload
+            action = payload?.action .. "issue in"
+            body = payload?.issue?.title ?? ""
+        case .issueComment?:
+            let payload = self.payload as? IssueCommentPayload
+            action = "commented on issue" .. "#\(payload?.issue?.number ?? 0)" .. "in"
+            body = payload?.comment?.body ?? ""
+        default:
+            action = "performed action in"
+        }
+
+        return Description(title: actor.login .. action .. repo.name, body: body)
+    }
+
 }
 
 extension Activity: Decodable {
@@ -72,6 +105,20 @@ extension Activity: Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+
+}
+
+infix operator ..: AdditionPrecedence
+
+private func ..(lhs: String?, rhs: String?) -> String {
+    return [lhs, rhs].joined(separator: " ")
+}
+
+private extension Array where Element == String? {
+
+    func joined(separator: String) -> String {
+        return compactMap { $0 }.joined(separator: separator)
     }
 
 }

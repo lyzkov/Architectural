@@ -9,8 +9,15 @@
 import RxSwift
 
 protocol Renderable {
-    
 }
+
+protocol Rendering: class {
+    associatedtype Item: Renderable
+
+    func render(item: Item?)
+}
+
+// TODO: replace list rendering with one Rendering protocol with conditional conformance extensions
 
 protocol ListRendering: class {
     associatedtype Item: Renderable
@@ -21,7 +28,11 @@ protocol ListRendering: class {
 extension ObservableConvertibleType {
 
     func render<Renderer: ListRendering>(with renderer: Renderer) -> Disposable where Element == [Renderer.Item] {
-            return asObservable().bind(to: renderer.items)
+        return asDriver(onErrorJustReturn: []).drive(renderer.items)
+    }
+
+    func render<Renderer: Rendering>(with renderer: Renderer) -> Disposable where Element == Renderer.Item? {
+        return asDriver(onErrorJustReturn: nil).drive(onNext: renderer.render)
     }
 
 }

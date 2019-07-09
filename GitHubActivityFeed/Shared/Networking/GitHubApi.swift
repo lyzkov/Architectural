@@ -15,11 +15,14 @@ struct GitHubApi: RestAPI {
 
     enum Activity: URLRequestConvertible {
         case listPublicEvents(page: Int, perPage: Int)
+        case listPerformedBy(userName: String, page: Int, perPage: Int)
 
         func asURLRequest() throws -> URLRequest {
             switch self {
             case let .listPublicEvents(page, perPage):
                 return try ListPublic(page: page, perPage: perPage).asURLRequest()
+            case let .listPerformedBy(userName, page, perPage):
+                return try ListPerformedBy(userName: userName, page: page, perPage: perPage).asURLRequest()
             }
         }
 
@@ -31,6 +34,33 @@ struct GitHubApi: RestAPI {
 
             let page: Int
             let perPage: Int
+
+            var parameters: Parameters {
+                return [
+                    "page": page,
+                    "perPage": perPage
+                ]
+            }
+        }
+
+        private struct ListPerformedBy: GetEndpoint, Resource {
+            typealias Result = [GitHubActivityFeed.Activity]
+
+            static var api: RestAPI.Type = GitHubApi.self
+            var path: String {
+                return "/users/\(userName)/events"
+            }
+
+            let userName: String
+            let page: Int
+            let perPage: Int
+
+            var parameters: Parameters {
+                return [
+                    "page": page,
+                    "perPage": perPage
+                ]
+            }
         }
 
     }
