@@ -30,9 +30,9 @@ Networking data is fetched by lightweight API client using customizable **endpoi
 
 ## RxCyclone
 
-Are you familiar with Redux Store? Each scene is powered by **reducible machine state container** called **cyclone** which is an eye of the whole module. It manages a domain model in order to achieve high-level business goals.  
+Are you familiar with Redux Store? With RxCyclone each scene is powered by **reducible machine state container** called **cyclone** which is an eye of the whole module. It manages a domain model in order to achieve high-level business goals.  
 
-You can trigger a machine tribes through predefined **inputs** driven by **sources**. Enriched inputs are translated to **events** which tells the machine how to reduce the state. State changes are propagated to the cyclone **outputs**.
+You can trigger a machine tribes through predefined **inputs** driven by **sources**. Enriched inputs are then translated to **events** which tells the machine how to reduce the state. State changes are propagated to the cyclone **outputs**.
 
 ## RxNavy
 
