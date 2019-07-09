@@ -88,6 +88,7 @@
 		F379C2B822D3FD0A00EC3D9C /* AlertErrorShooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertErrorShooter.swift; sourceTree = "<group>"; };
 		F379C2BA22D4005100EC3D9C /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		F379C2BC22D4010800EC3D9C /* FatalErrorShooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatalErrorShooter.swift; sourceTree = "<group>"; };
+		F379C2C022D438B000EC3D9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,11 +151,12 @@
 		F35F38D622C3DACA006718B1 = {
 			isa = PBXGroup;
 			children = (
+				92D4DD24579137D5E438C1C0 /* Frameworks */,
 				F35F38E122C3DACA006718B1 /* GitHubActivityFeed */,
 				F35F38F622C3DACC006718B1 /* GitHubActivityFeedTests */,
-				F35F38E022C3DACA006718B1 /* Products */,
+				F379C2BF22D4387700EC3D9C /* Metadata */,
 				6D0B85097751AB9FA7303CD9 /* Pods */,
-				92D4DD24579137D5E438C1C0 /* Frameworks */,
+				F35F38E022C3DACA006718B1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,6 +354,14 @@
 				F379C2BA22D4005100EC3D9C /* Errors.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		F379C2BF22D4387700EC3D9C /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				F379C2C022D438B000EC3D9C /* README.md */,
+			);
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
