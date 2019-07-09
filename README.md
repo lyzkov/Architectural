@@ -7,7 +7,7 @@ As you probably already know, a reactive paradigm shift is becoming inevitable o
 
 ## Motivation
 
-I'm a person full of crazy ideas. I can't keep them untouched so after a couple of brainstorming sessions I've started high-level frameworks up on top of RxSwift for the most common mobile development challenges. Their names simply remind me phenomenons observable at great scale across oceans.
+I'm a person full of crazy ideas. I can't keep them untouched so after a couple of brainstorming sessions I've started high-level frameworks up on top of RxSwift, solving common challenges of mobile app development. Their names simply remind me phenomenons observable at great scale across oceans.
 
 ## Libraries
 
